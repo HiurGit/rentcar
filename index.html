@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AutoDrive Premium - Dịch vụ thuê xe ô tô tự lái cao cấp. Đa dạng dòng xe từ Sedan, SUV đến xe sang. Đặt xe online nhanh chóng, giá tốt nhất thị trường.">
+    <meta name="keywords" content="thuê xe ô tô, thuê xe tự lái, rent a car, xe du lịch, thuê xe giá rẻ">
+    <title>AutoDrive Premium | Thuê Xe Ô Tô Tự Lái Cao Cấp</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Tektur:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Flatpickr Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-car-side"></i>
+                <span>Auto<span class="gold">Drive</span></span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Trang Chủ</a></li>
+                <li><a href="#features">Ưu Điểm</a></li>
+                <li><a href="#fleet">Đội Xe</a></li>
+                <li><a href="#how-it-works">Quy Trình</a></li>
+                <li><a href="#testimonials">Đánh Giá</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="tel:0901234567" class="phone-link">
+                    <i class="fas fa-phone"></i>
+                    <span>090 123 4567</span>
+                </a>
+                <button class="btn btn-primary" onclick="openBookingModal()">
+                    <i class="fas fa-calendar-check"></i>
+                    Đặt Xe Ngay
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Banner Slider -->
+    <section class="hero" id="home">
+          <div class="container">
+        <div class="hero-banner-slider">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Banner Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="banner-slide">
+                            <img src="image/banner1.png" alt="Thuê xe tự lái Buôn Hồ">
+                            <div class="banner-overlay"></div>
+                        </div>
+                    </div>
+                    <!-- Banner Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="banner-slide">
+                            <img src="image/banner2.jpg" alt="Cho thuê xe Đắk Lắk">
+                            <div class="banner-overlay"></div>
+                        </div>
+                    </div>
+                    <!-- Banner Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="banner-slide">
+                            <img src="image/banner3.png" alt="Thuê xe tự lái">
+                            <div class="banner-overlay"></div>
+                        </div>
+                    </div>
+                    <!-- Banner Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="banner-slide">
+                            <img src="image/banner4.png" alt="Cho thuê xe du lịch">
+                            <div class="banner-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination & Navigation -->
+                <div class="swiper-pagination hero-pagination"></div>
+                <div class="swiper-button-prev hero-btn-prev"></div>
+                <div class="swiper-button-next hero-btn-next"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Hero Booking Form -->
+        <div class="hero-booking-form" data-aos="fade-up">
+            <!-- <div class="hero-form-container">
+                <div class="hero-form-header">
+                    <h3><i class="fas fa-car"></i> Đăng Ký Thuê Xe Tự Lái và Có Lái</h3>
+                </div>
+                <form class="hero-form" id="heroBookingForm">
+                    <div class="hero-form-row">
+                        <div class="hero-form-group">
+                            <input type="text" name="customerName" placeholder="Họ và Tên *" required>
+                        </div>
+                        <div class="hero-form-group">
+                            <input type="tel" name="customerPhone" placeholder="Số Điện Thoại *" required>
+                        </div>
+                    </div>
+                    <div class="hero-form-row">
+                        <div class="hero-form-group">
+                            <select name="carSelect" required>
+                                <option value="">Chọn Xe *</option>
+                                <option value="VinFast VF 3">VF 3 - 600.000đ/ngày</option>
+                                <option value="VinFast VF 5">VF 5 - 800.000đ/ngày</option>
+                                <option value="VinFast VF 6">VF 6 - 1.000.000đ/ngày</option>
+                                <option value="VinFast VF 7">VF 7 - 1.200.000đ/ngày</option>
+                                <option value="VinFast VF 8">VF 8 - 1.500.000đ/ngày</option>
+                                <option value="VinFast VF 9">VF 9 - 2.500.000đ/ngày</option>
+                            </select>
+                        </div>
+                        <div class="hero-form-group">
+                            <input type="number" name="rentalDays" placeholder="Số Ngày *" min="1" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary hero-form-submit">
+                        <i class="fas fa-paper-plane"></i> Gửi Đăng Ký
+                    </button>
+                </form>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section class="featured-cars" id="featured-cars">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+
+                <h2> Các<span class="gold"> Xe Hot Nhất</span> </h2>
+            </div>
+
+            <div class="swiper featured-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <!-- Featured Car 1: VF 8 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 8</h3>
+                            <div class="featured-image">
+                                <img src="image/vf8.png" alt="VinFast VF 8">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-car"></i>
+                                    <span>SUV-D</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>5 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>400km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Cốp rộng</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">1.500.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 8')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Car 2: VF 9 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 9</h3>
+                            <div class="featured-image">
+                                <img src="image/vf9.png" alt="VinFast VF 9">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-truck-monster"></i>
+                                    <span>SUV-E</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>7 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>423km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Cốp rộng</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">2.500.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 9')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Car 3: VF 3 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 3</h3>
+                            <div class="featured-image">
+                                <img src="image/vf3.png" alt="VinFast VF 3">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-car-side"></i>
+                                    <span>Mini</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>4 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>210km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Nhỏ gọn</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">600.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 3')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Car 4: VF 7 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 7</h3>
+                            <div class="featured-image">
+                                <img src="image/vf7.png" alt="VinFast VF 7">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-gem"></i>
+                                    <span>SUV-C</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>5 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>375km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Cốp vừa</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">1.200.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 7')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Car 5: VF 6 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 6</h3>
+                            <div class="featured-image">
+                                <img src="image/vf6.png" alt="VinFast VF 6">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-car"></i>
+                                    <span>SUV-B</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>5 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>399km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Cốp vừa</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">1.000.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 6')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Car 6: VF 5 -->
+                    <div class="swiper-slide">
+                        <div class="featured-card">
+                            <h3 class="featured-name">VinFast VF 5</h3>
+                            <div class="featured-image">
+                                <img src="image/vf5.png" alt="VinFast VF 5">
+                            </div>
+                            <div class="featured-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-car"></i>
+                                    <span>SUV-A</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>5 chỗ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>326km</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-suitcase"></i>
+                                    <span>Cốp vừa</span>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <div class="featured-price">
+                                    <span class="price">800.000đ</span>
+                                    <span class="per-day">/ngày</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openBookingModal('VinFast VF 5')">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Đặt xe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation & Pagination -->
+                <div class="featured-navigation">
+                    <!-- <button class="swiper-button-prev-featured">
+                        <i class="fas fa-chevron-left"></i>
+                    </button> -->
+                    <div class="swiper-pagination-featured"></div>
+                    <!-- <button class="swiper-button-next-featured">
+                        <i class="fas fa-chevron-right"></i>
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Type Section -->
+    <section class="customer-rankings" id="customer-rankings">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Xếp Hạng <span class="gold">Khách Hàng</span></h2>
+                <div class="tier-legend">
+                    <span class="tier-badge tier-silver">Bạc</span>
+                    <span class="tier-badge tier-gold">Vàng</span>
+                    <span class="tier-badge tier-platinum">Bạch Kim</span>
+                    <span class="tier-badge tier-diamond">Kim Cương</span>
+                    <span class="tier-badge tier-master">Cao Thủ</span>
+                    <span class="tier-badge tier-conqueror">Thách Đấu</span>
+                </div>
+            </div>
+
+            <div class="rankings-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="ranking-card rank-1">
+                    <div class="corner-rank corner-rank-conqueror" aria-hidden="true"></div>
+                    <div class="ranking-top">
+                        <div class="ranking-medal">
+                            <i class="fas fa-crown"></i>
+                            <span>#1</span>
+                            <span class="tier-badge tier-conqueror">Thách Đấu</span>
+                        </div>
+                        <div class="ranking-user">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200" alt="Khách hàng 1"
+                                class="ranking-avatar">
+                            <div class="ranking-info">
+                                <h3>Nguyễn Minh Anh</h3>
+                                <div class="ranking-rating">
+                                    <i class="fas fa-phone"></i>
+                                    <span>SDT: ****4567</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ranking-stats">
+                        <div class="ranking-stat">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Chuyến</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value">28</span>
+                            <span class="stat-label">Ngày thuê</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value money-value" data-amount="3000000">3.000.000đ</span>
+                            <span class="stat-label">Tổng tiền</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ranking-card rank-2">
+                    <div class="corner-rank corner-rank-master" aria-hidden="true"></div>
+                    <div class="ranking-top">
+                        <div class="ranking-medal">
+                            <i class="fas fa-medal"></i>
+                            <span>#2</span>
+                            <span class="tier-badge tier-master">Cao Thủ</span>
+                        </div>
+                        <div class="ranking-user">
+                            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=200" alt="Khách hàng 2"
+                                class="ranking-avatar">
+                            <div class="ranking-info">
+                                <h3>Trần Quốc Huy</h3>
+                                <div class="ranking-rating">
+                                    <i class="fas fa-phone"></i>
+                                    <span>SDT: ****1234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ranking-stats">
+                        <div class="ranking-stat">
+                            <span class="stat-value">9</span>
+                            <span class="stat-label">Chuyến</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value">20</span>
+                            <span class="stat-label">Ngày thuê</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value money-value" data-amount="1500000">1.500.000đ</span>
+                            <span class="stat-label">Tổng tiền</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ranking-card rank-3">
+                    <div class="corner-rank corner-rank-diamond" aria-hidden="true"></div>
+                    <div class="ranking-top">
+                        <div class="ranking-medal">
+                            <i class="fas fa-award"></i>
+                            <span>#3</span>
+                            <span class="tier-badge tier-diamond">Kim Cương</span>
+                        </div>
+                        <div class="ranking-user">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200" alt="Khách hàng 3"
+                                class="ranking-avatar">
+                            <div class="ranking-info">
+                                <h3>Lê Thảo Vy</h3>
+                                <div class="ranking-rating">
+                                    <i class="fas fa-phone"></i>
+                                    <span>SDT: ****7890</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ranking-stats">
+                        <div class="ranking-stat">
+                            <span class="stat-value">7</span>
+                            <span class="stat-label">Chuyến</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value">16</span>
+                            <span class="stat-label">Ngày thuê</span>
+                        </div>
+                        <div class="ranking-stat">
+                            <span class="stat-value money-value" data-amount="700000">700.000đ</span>
+                            <span class="stat-label">Tổng tiền</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-table-section" id="customer-table">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>TOP <span class="gold">KHÁCH HÀNG </span>ĐÃ THUÊ </h2>
+            </div>
+
+            <div class="table-controls" data-aos="fade-up" data-aos-delay="80">
+                <div class="table-control">
+                    <input type="text" id="customerSearch" placeholder="Tìm theo tên hoặc Số điện thoại khách...">
+                </div>
+                <div class="table-control sort-buttons" role="group" aria-label="Chọn tiêu chí xếp hạng">
+                    <button type="button" class="sort-btn" data-sort="trips">Top Chuyến</button>
+                    <button type="button" class="sort-btn" data-sort="days">Top Ngày Thuê</button>
+                    <button type="button" class="sort-btn is-active" data-sort="money">Top Tổng tiền</button>
+                </div>
+            </div>
+
+            <div class="table-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>Top</th>
+                            <th>Tên</th>
+                            <th>SDT</th>
+                            <th>Chuyến</th>
+                            <th>Ngày thuê</th>
+                            <th>Tổng tiền</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerRankingTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Fleet Section -->
+    <section class="fleet" id="fleet">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+
+                <h2>Tất Cả Xe<span class="gold"> Cho Thuê</span></h2>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="mini">Mini</button>
+                <button class="filter-btn" data-filter="suv">SUV</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+                <button class="filter-btn" data-filter="limo">Limo</button>
+            </div>
+
+            <!-- Car Grid -->
+            <div class="car-grid" id="carGrid">
+                <!-- VF 3 -->
+                <div class="car-card" data-category="mini" data-aos="fade-up" data-aos-delay="100">
+                    <div class="car-image">
+                        <img src="image/vf3.png" alt="VinFast VF 3">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf3')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 3</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 4 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">600.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('VinFast VF 3')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VF 5 - Đã cho thuê -->
+                <div class="car-card rented" data-category="mini" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-image">
+                        <img src="image/vf5.png" alt="VinFast VF 5">
+                        <div class="car-badge rented">Đã cho thuê</div>
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf5')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 5</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">800.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-sm btn-rented" disabled>
+                                <i class="fas fa-ban"></i> Hết xe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-card" data-category="mini" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-image">
+                        <img src="image/vf5.png" alt="VinFast VF 5">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf5')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 5</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">800.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('VinFast VF 5')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VF 6 -->
+                <div class="car-card" data-category="suv" data-aos="fade-up" data-aos-delay="300">
+                    <div class="car-image">
+                        <img src="image/vf6.png" alt="VinFast VF 6">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf6')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 6</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">1.000.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('VinFast VF 6')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VF 7 - Đã cho thuê -->
+                <div class="car-card rented" data-category="suv" data-aos="fade-up" data-aos-delay="400">
+                    <div class="car-image">
+                        <img src="image/vf7.png" alt="VinFast VF 7">
+                        <div class="car-badge rented">Đã cho thuê</div>
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf7')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 7</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">1.200.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-sm btn-rented" disabled>
+                                <i class="fas fa-ban"></i> Hết xe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VF 8 -->
+                <div class="car-card" data-category="luxury" data-aos="fade-up" data-aos-delay="100">
+                    <div class="car-image">
+                        <img src="image/vf8.png" alt="VinFast VF 8">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf8')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 8</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">1.500.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('VinFast VF 8')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VF 9 -->
+                <div class="car-card" data-category="luxury" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-image">
+                        <img src="image/vf9.png" alt="VinFast VF 9">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('vf9')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>VinFast VF 9</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 6/7 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">2.500.000đ</span>
+                                <span class="per-day">/ngày</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('VinFast VF 9')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limo Green -->
+                <div class="car-card" data-category="limo" data-aos="fade-up" data-aos-delay="300">
+                    <div class="car-image">
+                        <img src="image/vflimo.png" alt="vflimo">
+                            alt="Limo Green">
+                        <div class="car-overlay">
+                            <button class="quick-view-btn" onclick="openCarDetail('limogreen')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <h3>Limo Green</h3>
+                            <div class="car-rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="spec-item"><i class="fas fa-cog"></i> Tự động</div>
+                            <div class="spec-item"><i class="fas fa-users"></i> 5/7 chỗ</div>
+                            <div class="spec-item"><i class="fas fa-bolt"></i> Điện</div>
+                        </div>
+                        <div class="car-footer">
+                            <div class="car-price">
+                                <span class="price">Liên hệ</span>
+                                <!-- <span class="per-day">/km</span> -->
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="openBookingModal('Limo Green')">Đặt
+                                Xe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Car Card 7 -->
+
+        </div>
+
+        <!-- Car Card 8 -->
+
+        </div>
+
+        <div class="view-all-btn" data-aos="fade-up">
+            <button class="btn btn-outline btn-lg">
+                Xem Tất Cả Xe
+            </button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Car Brands Section -->
+
+
+   
+
+    <!-- Transaction Gallery Section -->
+    <section class="transactions" id="transactions">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Giao Dịch <span class="gold">Gần Đây</span></h2>
+            </div>
+            <div class="transaction-badges" data-aos="fade-up">
+                <span class="trans-badge"><i class="fas fa-check-circle"></i> Giao dịch an toàn</span>
+                <span class="trans-badge"><i class="fas fa-check-circle"></i> Hỗ trợ 24/7</span>
+                <span class="trans-badge"><i class="fas fa-check-circle"></i> Hoàn tiền nếu lỗi</span>
+            </div>
+            <div class="transactions-grid" data-aos="fade-up">
+                <!-- Row 1 -->
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400" alt="Bill giao dịch">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400" alt="Hợp đồng">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400" alt="Chuyển khoản">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=400" alt="Khách hàng">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400" alt="Bill thanh toán">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Khách hàng 2">
+                </div>
+                <!-- Row 2 -->
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400" alt="Khách hàng 3">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400" alt="Hóa đơn">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400" alt="Thanh toán">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400" alt="Giao xe">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Khách hàng 4">
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=400" alt="Bill 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="car-brands" id="car-brands">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+
+                <h2>Chọn Xe <span class="gold">Theo Hãng</span></h2>
+
+            </div>
+
+            <div class="swiper brands-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- KIA -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/kia.png"
+                                alt="KIA">
+                            <span>KIA</span>
+                        </div>
+                    </div>
+                    <!-- Mazda -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png"
+                                alt="Mazda">
+                            <span>MAZDA</span>
+                        </div>
+                    </div>
+                    <!-- Hyundai -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png"
+                                alt="Hyundai">
+                            <span>HYUNDAI</span>
+                        </div>
+                    </div>
+                    <!-- Toyota -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png"
+                                alt="Toyota">
+                            <span>TOYOTA</span>
+                        </div>
+                    </div>
+                    <!-- Mitsubishi -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mitsubishi.png"
+                                alt="Mitsubishi">
+                            <span>MITSUBISHI</span>
+                        </div>
+                    </div>
+                    <!-- MG -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mg.png"
+                                alt="MG">
+                            <span>MG</span>
+                        </div>
+                    </div>
+                    <!-- Honda -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/honda.png"
+                                alt="Honda">
+                            <span>HONDA</span>
+                        </div>
+                    </div>
+                    <!-- Ford -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/ford.png"
+                                alt="Ford">
+                            <span>FORD</span>
+                        </div>
+                    </div>
+                    <!-- Suzuki -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/suzuki.png"
+                                alt="Suzuki">
+                            <span>SUZUKI</span>
+                        </div>
+                    </div>
+                    <!-- VinFast -->
+                    <div class="swiper-slide">
+                        <div class="brand-card">
+                            <img src="https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/vinfast.png"
+                                alt="VinFast">
+                            <span>VINFAST</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div class="swiper-button-prev-brands"><i class="fas fa-chevron-left"></i></div>
+                <div class="swiper-button-next-brands"><i class="fas fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" style="margin-bottom: 30px;">
+
+                <h2>Thông Tin <span class="gold">Liên Hệ</span></h2>
+            </div>
+
+            <div class="contact-3-cols-wrapper">
+                <!-- Column 1: Location -->
+                <div class="c-col-item" data-aos="fade-up">
+                    <div class="c-col-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Showroom Chính</h3>
+                    <p>123 Nguyễn Văn Linh,<br>Quận 7, TP. Hồ Chí Minh</p>
+                    <a href="#" class="c-col-link">Chỉ đường <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Column 2: Contact -->
+                <div class="c-col-item active" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c-col-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Liên Hệ 24/7</h3>
+                    <p class="highlight-phone">090 123 4567</p>
+                    <p>contact@autodrive.vn</p>
+                    <a href="tel:0901234567" class="c-col-btn">Gọi Ngay</a>
+                </div>
+
+                <!-- Column 3: Connect -->
+                <div class="c-col-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c-col-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Kết Nối</h3>
+                    <p>Theo dõi chúng tôi để nhận <br>ưu đãi mới nhất</p>
+                    <div class="c-col-socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ Section -->
+            <div class="faq-section-wrapper" data-aos="fade-up" data-aos-delay="300" style="margin-top: 80px;">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2>Câu Hỏi <span class="gold">Thường Gặp</span></h2>
+                </div>
+
+                <div class="faq-container-centered">
+                    <div class="faq-accordion" id="faqAccordion">
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Thuê xe tự lái cần giấy tờ gì?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>CCCD hoặc hộ chiếu (bản gốc)<br>
+                                    Bằng lái xe hợp lệ, có thể VNeID<br>
+                                    Tiền đặt cọc hoặc giấy tờ thay thế theo quy định</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Tiền đặt cọc là bao nhiêu?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Để lại cọc cho mình xe máy có giấy tờ xe</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Giá thuê đã bao gồm những chi phí gì?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Bao gồm: tiền thuê xe<br>
+                                    Không bao gồm: xăng/dầu, phí cầu đường, bãi đỗ, phí vệ sinh (nếu quá bẩn)</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Cách tính thời gian thuê xe?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>1 ngày = từ 6h sáng đến 22h tối<br>
+                                    2 ngày = từ 6h sáng hôm nay đến 22h tối ngày mai<br>
+                                    Trả sớm không hoàn tiền<br>
+                                    Trả trễ sẽ tính phụ thu</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Nếu trả xe muộn thì sao?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Trả xe muộn mà có báo trước<br>
+                                    Trễ 1–2 giờ: có thể miễn phí hoặc tính theo giờ<br>
+                                    Trễ nhiều: tính ½ ngày hoặc 1 ngày thuê<br>
+                                    Có báo trước: sẽ được bên mình hỗ trợ<br><br>
+                                    Trả xe muộn mà không báo trước<br>
+                                    Bị tính phí cao<br>
+                                    Có thể bị xem là vi phạm hợp đồng<br>
+                                    Có quyền định vị GPS, khóa xe từ xa hoặc báo công an (trường hợp quá hạn nghiêm trọng gọi điện không nghe máy nhắn tin không trả lời)</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Xe có bảo hiểm không?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Có bảo hiểm trách nhiệm dân sự bắt buộc<br>
+                                    Bảo hiểm thân vỏ: tùy xe, cần hỏi rõ trước khi thuê</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Xe bị trầy xước hay tai nạn xử lý thế nào?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Trầy xước nhẹ: bồi thường theo mức thỏa thuận<br>
+                                    Tai nạn lớn: xử lý theo bảo hiểm và hợp đồng<br>
+                                    Khách nên chụp ảnh/quay video xe khi nhận xe</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Có được cho người khác lái xe không?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Được, người đó được ghi rõ trong hợp đồng</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Có giới hạn số km không?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Không giới hạn số km, khách hàng chạy thoải mái</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Có giao xe tận nơi không?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Có, hỗ trợ nhiệt tình</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Hủy xe có mất phí không?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Hủy sớm: thường không mất phí<br>
+                                    Hủy sát giờ: có thể mất cọc hoặc phí hủy</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-header">
+                                <span>Khách cần lưu ý gì khi thuê xe?</span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <div class="faq-content">
+                                <p>Kiểm tra xe kỹ trước khi nhận<br>
+                                    Chụp ảnh/video tình trạng xe<br>
+                                    Đọc kỹ hợp đồng<br>
+                                    Trả xe đúng giờ, đúng tình trạng ban đầu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="#" class="footer-logo">
+                            <i class="fas fa-car-side"></i>
+                            <span>Auto<span class="gold">Drive</span></span>
+                        </a>
+                        <p>Dịch vụ thuê xe ô tô tự lái cao cấp hàng đầu Việt Nam. Đa dạng dòng xe, giá cả minh bạch,
+                            phục vụ 24/7.</p>
+                        <div class="footer-badges">
+                            <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Verified">
+                            <img src="https://img.icons8.com/fluency/48/guarantee.png" alt="Guarantee">
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Liên Kết Nhanh</h4>
+                        <ul>
+                            <li><a href="#home">Trang Chủ</a></li>
+                            <li><a href="#features">Ưu Điểm</a></li>
+                            <li><a href="#fleet">Đội Xe</a></li>
+                            <li><a href="#how-it-works">Quy Trình</a></li>
+                            <li><a href="#testimonials">Đánh Giá</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Dịch Vụ</h4>
+                        <ul>
+                            <li><a href="#">Thuê Xe Tự Lái</a></li>
+                            <li><a href="#">Thuê Xe Có Tài</a></li>
+                            <li><a href="#">Thuê Xe Dài Hạn</a></li>
+                            <li><a href="#">Thuê Xe Du Lịch</a></li>
+                            <li><a href="#">Thuê Xe Cưới</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Đăng Ký Nhận Tin</h4>
+                        <p>Nhận ưu đãi độc quyền và thông tin mới nhất từ chúng tôi.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email của bạn">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 AutoDrive. Tất cả quyền được bảo lưu.</p>
+                <div class="footer-links">
+                    <a href="#">Chính Sách Bảo Mật</a>
+                    <a href="#">Điều Khoản Sử Dụng</a>
+                    <a href="#">Hỗ Trợ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="tel:0901234567" class="float-btn phone-float">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+
+        <a href="https://zalo.me/0901234567" target="_blank" class="float-btn zalo-float">
+            <img src="https://img.icons8.com/color/48/zalo.png" alt="Zalo">
+        </a>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Image Lightbox Modal -->
+    <div class="image-lightbox" id="imageLightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Transaction Image" id="lightboxImage">
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-modal-overlay" onclick="closeBookingModal()"></div>
+        <div class="booking-modal-content">
+
+            <button class="booking-modal-close" onclick="closeBookingModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="booking-modal-header">
+              
+                <h2>Đăng Ký <span class="gold">Thuê Xe</span></h2>
+                <p id="selectedCarName">Điền thông tin để đặt xe nhanh chóng</p>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <!-- <label for="customerName">
+                        <i class="fas fa-user"></i> Họ và Tên <span class="required">*</span>
+                    </label> -->
+                    <input type="text" id="customerName" name="fullname" placeholder="Nhập tên của bạn" required>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="customerPhone">
+                        <i class="fas fa-phone"></i> Số Điện Thoại <span class="required">*</span>
+                    </label> -->
+                    <input type="tel" id="customerPhone" name="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+                <div class="form-group">
+                    <label for="carSelect">
+                        <i class="fas fa-car-side"></i> Chọn Xe Muốn Thuê <span class="required">*</span>
+                    </label>
+                    <select id="carSelect" name="carSelect" required>
+                        <option value="">-- Chọn loại xe --</option>
+                        <option value="VinFast VF 3" data-price="600000">VinFast VF 3 - 600.000đ/ngày</option>
+                        <option value="VinFast VF 5" data-price="800000">VinFast VF 5 - 800.000đ/ngày</option>
+                        <option value="VinFast VF 6" data-price="1000000">VinFast VF 6 - 1.000.000đ/ngày</option>
+                        <option value="VinFast VF 7" data-price="1200000">VinFast VF 7 - 1.200.000đ/ngày</option>
+                        <option value="VinFast VF 8" data-price="1500000">VinFast VF 8 - 1.500.000đ/ngày</option>
+                        <option value="VinFast VF 9" data-price="2500000">VinFast VF 9 - 2.500.000đ/ngày</option>
+                        <option value="Limo Green" data-price="0">Limo Green - Liên hệ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="pickupDate">
+                        <i class="fas fa-calendar-check"></i> Ngày Nhận Xe <span class="required">*</span>
+                    </label> -->
+                    <input type="text" id="pickupDate" name="pickup_date" required placeholder="Chọn ngày nhận xe" readonly>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="rentalDays">
+                        <i class="fas fa-calendar-alt"></i> Số Ngày Thuê <span class="required">*</span>
+                    </label> -->
+                    <input type="number" id="rentalDays" name="rentalDays" placeholder="Nhập số ngày muốn thuê" min="1" max="30"
+                        required>
+                </div>
+                <div class="form-group booking-total" id="bookingTotalWrap">
+                    <div class="booking-breakdown" id="bookingBreakdown">
+                        <div class="booking-breakdown-row">
+                            <span class="booking-breakdown-label">Xe:</span>
+                            <span class="booking-breakdown-value" id="bookingCarText">Chưa chọn</span>
+                        </div>
+                        <div class="booking-breakdown-row">
+                            <span class="booking-breakdown-label">Giá/ngày:</span>
+                            <span class="booking-breakdown-value" id="bookingPricePerDayText">0đ</span>
+                        </div>
+                        <div class="booking-breakdown-row">
+                            <span class="booking-breakdown-label">Số ngày:</span>
+                            <span class="booking-breakdown-value" id="bookingDaysText">0</span>
+                        </div>
+                        <div class="booking-breakdown-row">
+                            <span class="booking-breakdown-label">Phụ phí:</span>
+                            <span class="booking-breakdown-value" id="bookingFeeText">0đ (không)</span>
+                        </div>
+                    </div>
+                    <div class="booking-total-row">
+                        <span class="booking-total-label">Tổng cộng:</span>
+                        <span class="booking-total-value" id="bookingTotalAmount">0đ</span>
+                    </div>
+                </div>
+                 
+                <button type="submit" class="btn btn-primary btn-block booking-submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Gửi Đăng Ký
+                </button>
+            </form>
+
+            <!-- <div class="booking-modal-footer">
+                <p><i class="fas fa-shield-alt"></i> Thông tin của bạn được bảo mật tuyệt đối</p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
