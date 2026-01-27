@@ -64,6 +64,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
@@ -184,55 +185,27 @@ h6 {
     gap: 20px;
 }
 
-
 .phone-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 600;
-    transition: all var(--transition-medium);
-    padding: 8px 15px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 18px;
+    border-radius: var(--radius-xl);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-}
-
-.phone-link:hover {
-    color: var(--primary-gold);
-    background: rgba(255, 215, 0, 0.1);
-    border-color: rgba(255, 215, 0, 0.3);
-    transform: translateY(-2px);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all var(--transition-medium);
 }
 
 .phone-link i {
     color: var(--primary-gold);
-    font-size: 1.1rem;
-    animation: phone-shake 2s infinite;
 }
 
-@keyframes phone-shake {
-
-    0%,
-    100% {
-        transform: rotate(0);
-    }
-
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        transform: rotate(-5deg);
-    }
-
-    20%,
-    40%,
-    60%,
-    80% {
-        transform: rotate(5deg);
-    }
+.phone-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 215, 0, 0.25);
+    transform: translateY(-2px);
 }
 
 /* Mobile Menu Button */
@@ -266,6 +239,36 @@ h6 {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Mobile Nav Links */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(300px, 85vw);
+        height: 100vh;
+        background: var(--bg-dark-secondary);
+        flex-direction: column;
+        padding: 100px 40px;
+        gap: 25px;
+        transform: translateX(100%);
+        transition: transform var(--transition-medium);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-right .phone-link,
+    .nav-right .btn {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
+
 /* ===================================
    Buttons
    =================================== */
@@ -284,7 +287,6 @@ h6 {
     transition: all var(--transition-medium);
     text-decoration: none;
 }
-
 
 .btn-primary {
     background: linear-gradient(135deg, #FFD700, #FDB931);
@@ -313,13 +315,8 @@ h6 {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
-    background: linear-gradient(135deg, #ffe033, #ffc400);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
     box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, #ffe033, #ffc400);
 }
 
 .btn-outline {
@@ -421,6 +418,20 @@ h6 {
     }
 }
 
+@media (max-width: 400px) {
+    .hero {
+        padding: 80px 0 25px;
+    }
+
+    .banner-slide {
+        height: 240px;
+    }
+
+    .hero-pagination {
+        bottom: 12px !important;
+    }
+}
+
 .banner-slide img {
     width: 100%;
     height: 100%;
@@ -446,10 +457,35 @@ h6 {
     padding: 0 20px;
 }
 
-/* Hero Swiper Navigation - Hidden */
+/* Hero Swiper Navigation */
 .hero-btn-prev,
 .hero-btn-next {
-    display: none !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.hero-btn-prev {
+    left: 10px;
+}
+
+.hero-btn-next {
+    right: 10px;
+}
+
+.hero-btn-prev:hover,
+.hero-btn-next:hover {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.5);
 }
 
 /* Hero Pagination */
@@ -954,19 +990,24 @@ h6 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .featured-cars .section-header::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
-pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+    pointer-events: none;
 }
 
 .featured-cars .section-header > * {
-position: relative;
-z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .customer-rankings .section-header,
@@ -975,37 +1016,42 @@ z-index: 1;
 .transactions .section-header,
 .car-brands .section-header,
 .contact .section-header {
-position: relative;
-padding: 35px 25px;
-border-radius: var(--radius-lg);
-overflow: hidden;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+    position: relative;
+    padding: 35px 25px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .customer-rankings .section-header {
-background-image: url('image/bannertitle/bannertitle2.png');
+    background-image: url('image/bannertitle/bannertitle2.png');
 }
 
 .customer-table-section .section-header {
-background-image: url('image/bannertitle/bannertitle3.png');
+    background-image: url('image/bannertitle/bannertitle3.png');
 }
 
 .fleet .section-header {
-background-image: url('image/bannertitle/bannertitle4.png');
+    background-image: url('image/bannertitle/bannertitle4.png');
 }
 
 .transactions .section-header {
-background-image: url('image/bannertitle/bannertitle5.png');
+    background-image: url('image/bannertitle/bannertitle5.png');
 }
 
 .car-brands .section-header {
-background-image: url('image/bannertitle/bannertitle6.png');    
+    background-image: url('image/bannertitle/bannertitle6.png');    
 }
 
 .contact .section-header {
-background-image: url('image/bannertitle/bannertitle7.png');
+    background-image: url('image/bannertitle/bannertitle7.png');
 }
 
 .customer-rankings .section-header::before,
@@ -1014,11 +1060,11 @@ background-image: url('image/bannertitle/bannertitle7.png');
 .transactions .section-header::before,
 .car-brands .section-header::before,
 .contact .section-header::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
-pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+    pointer-events: none;
 }
 
 .customer-rankings .section-header > *,
@@ -1027,8 +1073,8 @@ pointer-events: none;
 .transactions .section-header > *,
 .car-brands .section-header > *,
 .contact .section-header > * {
-position: relative;
-z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -1073,9 +1119,43 @@ z-index: 1;
     }
 }
 
+@media (max-width: 400px) {
+    .featured-cars .section-header,
+    .customer-rankings .section-header,
+    .customer-table-section .section-header,
+    .fleet .section-header,
+    .transactions .section-header,
+    .car-brands .section-header,
+    .contact .section-header {
+        background-size: cover;
+        min-height: 0px;
+        padding: 28px 16px;
+    }
+
+    .featured-cars .section-header h2,
+    .customer-rankings .section-header h2,
+    .customer-table-section .section-header h2,
+    .fleet .section-header h2,
+    .transactions .section-header h2,
+    .car-brands .section-header h2,
+    .contact .section-header h2 {
+        font-size: 1.65rem;
+    }
+}
+
+.featured-cars .section-header h2,
+.customer-rankings .section-header h2,
+.customer-table-section .section-header h2,
+.fleet .section-header h2,
+.transactions .section-header h2,
+.car-brands .section-header h2,
+.contact .section-header h2 {
+    text-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
 .featured-swiper {
-padding: 20px 10px 60px;
-position: relative;
+    padding: 20px 10px 60px;
+    position: relative;
 }
 
 .featured-card {
@@ -1117,8 +1197,7 @@ position: relative;
     opacity: 1;
 }
 
-
-
+/* Featured Car Details */
 .featured-name {
     font-size: 1.5rem;
     font-weight: 700;
@@ -1284,25 +1363,32 @@ position: relative;
 
 .swiper-button-prev-featured,
 .swiper-button-next-featured {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
+    color: white;
     cursor: pointer;
-    transition: all var(--transition-medium);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-button-prev-featured {
+    left: 10px;
+}
+
+.swiper-button-next-featured {
+    right: 10px;
 }
 
 .swiper-button-prev-featured:hover,
 .swiper-button-next-featured:hover {
-    background: var(--primary-gradient);
-    color: #000;
-    border-color: transparent;
-    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.5);
 }
 
 .swiper-pagination-featured {
@@ -1605,35 +1691,32 @@ position: relative;
 
 .swiper-button-prev-brands,
 .swiper-button-next-brands {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all var(--transition-medium);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 10;
 }
 
 .swiper-button-prev-brands {
-    left: 0;
+    left: 10px;
 }
 
 .swiper-button-next-brands {
-    right: 0;
+    right: 10px;
 }
 
 .swiper-button-prev-brands:hover,
 .swiper-button-next-brands:hover {
-    background: var(--primary-gold);
-    color: #000;
+    background: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -1860,6 +1943,33 @@ position: relative;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     position: relative;
+}
+
+.rankings-swiper {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .rankings-swiper {
+        display: block;
+    }
+    .rankings-grid {
+        display: none;
+    }
+    
+    .rankings-swiper .swiper-pagination {
+        position: relative;
+        margin-top: 20px;
+    }
+    
+    .rankings-swiper .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.4);
+        opacity: 1;
+    }
+    
+    .rankings-swiper .swiper-pagination-bullet-active {
+        background: var(--primary-gold);
+    }
 }
 
 .ranking-card {
@@ -2191,11 +2301,10 @@ position: relative;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-medium);
@@ -2233,9 +2342,6 @@ position: relative;
     font-size: 1.5rem;
     cursor: pointer;
     transition: all var(--transition-medium);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .lightbox-close:hover {
@@ -2775,7 +2881,7 @@ position: relative;
 .contact-form .form-group input,
 .contact-form .form-group textarea {
     width: 100%;
-    padding: 18px 20px 18px 50px;
+    padding: 18px 20px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
@@ -2789,7 +2895,6 @@ position: relative;
 .contact-form .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-gold);
-    background: rgba(255, 215, 0, 0.05);
 }
 
 .contact-form .form-group label {
@@ -3221,18 +3326,19 @@ position: relative;
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 300px;
+        right: 0;
+        width: min(300px, 85vw);
         height: 100vh;
         background: var(--bg-dark-secondary);
         flex-direction: column;
         padding: 100px 40px;
         gap: 25px;
-        transition: right var(--transition-medium);
+        transform: translateX(100%);
+        transition: transform var(--transition-medium);
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     .nav-right .phone-link,
