@@ -128,7 +128,7 @@ function createDemoCustomer(index) {
 let customerRankingData = [];
 
 const CUSTOMER_TABLE_START_TOP = 1;
-const CUSTOMER_TABLE_MAX_ROWS = 20;
+const CUSTOMER_TABLE_MAX_ROWS = 10;
 const CUSTOMER_TABLE_END_TOP = CUSTOMER_TABLE_START_TOP + CUSTOMER_TABLE_MAX_ROWS - 1;
 
 let currentCustomerSort = 'money';
@@ -271,7 +271,37 @@ function initCustomerRankingTable() {
     applyCustomerRankingTable();
 }
 
-document.addEventListener('DOMContentLoaded', initCustomerRankingTable);
+document.addEventListener('DOMContentLoaded', function() {
+    initCustomerRankingTable();
+    
+    // Initialize Rankings Swiper for mobile
+    if (window.innerWidth <= 480) {
+        const rankingsSwiper = new Swiper('.rankings-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            speed: 500,
+            pagination: {
+                el: '.rankings-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                },
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                }
+            }
+        });
+    }
+});
 
 // ===================================
 // Initialize Hero Banner Swiper
