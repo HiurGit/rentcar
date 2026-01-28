@@ -418,6 +418,7 @@ h6 {
     }
 }
 
+<<<<<<< HEAD
 @media (max-width: 500px) {
     .banner-slide {
         height: 280px;
@@ -437,6 +438,8 @@ h6 {
     }
 }
 
+=======
+>>>>>>> 5d85445a958bb4673105b94db756afcd3ceb8d8d
 @media (max-width: 400px) {
     .hero {
         padding: 80px 0 25px;
